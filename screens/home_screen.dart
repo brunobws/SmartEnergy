@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../models/appliance.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,7 +11,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<Appliance> _appliances = [];
-
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _powerController = TextEditingController();
 
@@ -66,56 +66,101 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SmartEnergy'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _nameController,
-              decoration: const InputDecoration(
-                labelText: 'Nome do Eletrodoméstico',
-              ),
-            ),
-            TextField(
-              controller: _powerController,
-              decoration: const InputDecoration(
-                labelText: 'Potência (W)',
-              ),
-              keyboardType: TextInputType.number,
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: _addAppliance,
-              child: const Text('Adicionar'),
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              'Eletrodomésticos Cadastrados:',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _appliances.length,
-                itemBuilder: (context, index) {
-                  final appliance = _appliances[index];
-                  return ListTile(
-                    title: Text(appliance.name),
-                    subtitle: Text('${appliance.power} W'),
-                  );
-                },
-              ),
-            ),
-            ElevatedButton(
-              onPressed: _goToSimulate,
-              child: const Text('Simular Custo'),
-            ),
-          ],
+        title: Text(
+          'SmartEnergy',
+          style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
         ),
+        backgroundColor: theme.colorScheme.primary,
       ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                  labelText: 'Nome do Eletrodoméstico',
+                  prefixIcon: const Icon(Icons.electrical_services),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                controller: _powerController,
+                decoration: InputDecoration(
+                  labelText: 'Potência (W)',
+                  prefixIcon: const Icon(Icons.flash_on),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: _addAppliance,
+                  icon: const Icon(Icons.add),
+                  label: const Text('Adicionar'),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Eletrodomésticos Cadastrados:',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Expanded(
+                child: _appliances.isEmpty
+                    ? const Center(child: Text('Nenhum item cadastrado ainda.'))
+                    : ListView.builder(
+                        itemCount: _appliances.length,
+                        itemBuilder: (context, index) {
+                          final appliance = _appliances[index];
+                          return Card(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            elevation: 2,
+                            child: ListTile(
+                              leading: const Icon(Icons.kitchen),
+                              title: Text(appliance.name),
+                              subtitle: Text('${appliance.power} W'),
+                            ),
+                          );
+                        },
+                      ),
+              ),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: _goToSimulate,
+                  icon: const Icon(Icons.calculate),
+                  label: const Text('Simular Custo'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: theme.colorScheme.secondary,
+                    foregroundColor: Colors.white, 
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      )
     );
   }
 }
