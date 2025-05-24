@@ -26,7 +26,7 @@ Com uma interface intuitiva, o SmartEnergy permite que você cadastre seus apare
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes. **
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE.md) para mais detalhes. **
 
 ## 📧 Contato
 
