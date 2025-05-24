@@ -1,0 +1,7 @@
+# Diga ao GitHub para ignorar as linguagens nestas pastas
+ios/* linguist-vendored
+android/* linguist-vendored
+build/* linguist-vendored
+linux/* linguist-vendored
+windows/* linguist-vendored
+macos/* linguist-vendored
