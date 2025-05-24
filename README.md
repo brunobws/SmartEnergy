@@ -2,7 +2,6 @@
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![GitHub top language](https://img.shields.io/github/top-language/brunobws/SmartEnergy?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/brunobws/SmartEnergy?style=for-the-badge)
 
 ## 📖 Sobre o Projeto
@@ -27,13 +26,13 @@ Com uma interface intuitiva, o SmartEnergy permite que você cadastre seus apare
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes. *(Crie um arquivo LICENSE na raiz do seu projeto se você ainda não tiver um, com o texto da licença MIT ou outra de sua preferência)*
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes. **
 
 ## 📧 Contato
 
 Se tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
 
-* **Seu Nome:** Bruno William da Silva
+* **Nome:** Bruno William da Silva
 * **Email:** brun0ws@outlook.com
 * **LinkedIn:** [Bruno William da Silva](https://www.linkedin.com/in/brunowds/)
 
